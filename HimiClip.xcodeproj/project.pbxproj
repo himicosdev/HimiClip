@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8ADE80AD2C8DB34A00A2CBC5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8ADE80AC2C8DB34500A2CBC5 /* .gitignore */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A2C37662C89BE0D0061447F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A2C374D2C89BE0B0061447F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A2C37542C89BE0B0061447F;
+			remoteInfo = HimiClip;
+		};
+		8A2C37702C89BE0D0061447F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A2C374D2C89BE0B0061447F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A2C37542C89BE0B0061447F;
+			remoteInfo = HimiClip;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8A2C37552C89BE0B0061447F /* HimiClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HimiClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2C37652C89BE0D0061447F /* HimiClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HimiClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2C376F2C89BE0D0061447F /* HimiClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HimiClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADE80AC2C8DB34500A2CBC5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8ADE800E2C8C5BB900A2CBC5 /* Exceptions for "HimiClip" folder in "HimiClip" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8A2C37542C89BE0B0061447F /* HimiClip */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8A2C37682C89BE0D0061447F /* HimiClipTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HimiClipTests;
+			sourceTree = "<group>";
+		};
+		8A2C37722C89BE0D0061447F /* HimiClipUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HimiClipUITests;
+			sourceTree = "<group>";
+		};
+		8AB7CAAE2C8C4EE1005B3FE0 /* HimiClip */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8ADE800E2C8C5BB900A2CBC5 /* Exceptions for "HimiClip" folder in "HimiClip" target */,
+			);
+			path = HimiClip;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A2C37522C89BE0B0061447F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2C37622C89BE0D0061447F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2C376C2C89BE0D0061447F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A2C374C2C89BE0B0061447F = {
+			isa = PBXGroup;
+			children = (
+				8AB7CAAE2C8C4EE1005B3FE0 /* HimiClip */,
+				8A2C37682C89BE0D0061447F /* HimiClipTests */,
+				8A2C37722C89BE0D0061447F /* HimiClipUITests */,
+				8A2C37562C89BE0B0061447F /* Products */,
+				8ADE80AC2C8DB34500A2CBC5 /* .gitignore */,
+			);
+			sourceTree = "<group>";
+		};
+		8A2C37562C89BE0B0061447F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A2C37552C89BE0B0061447F /* HimiClip.app */,
+				8A2C37652C89BE0D0061447F /* HimiClipTests.xctest */,
+				8A2C376F2C89BE0D0061447F /* HimiClipUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A2C37542C89BE0B0061447F /* HimiClip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2C37792C89BE0D0061447F /* Build configuration list for PBXNativeTarget "HimiClip" */;
+			buildPhases = (
+				8A2C37512C89BE0B0061447F /* Sources */,
+				8A2C37522C89BE0B0061447F /* Frameworks */,
+				8A2C37532C89BE0B0061447F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8AB7CAAE2C8C4EE1005B3FE0 /* HimiClip */,
+			);
+			name = HimiClip;
+			packageProductDependencies = (
+			);
+			productName = HimiClip;
+			productReference = 8A2C37552C89BE0B0061447F /* HimiClip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8A2C37642C89BE0D0061447F /* HimiClipTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2C377C2C89BE0D0061447F /* Build configuration list for PBXNativeTarget "HimiClipTests" */;
+			buildPhases = (
+				8A2C37612C89BE0D0061447F /* Sources */,
+				8A2C37622C89BE0D0061447F /* Frameworks */,
+				8A2C37632C89BE0D0061447F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A2C37672C89BE0D0061447F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8A2C37682C89BE0D0061447F /* HimiClipTests */,
+			);
+			name = HimiClipTests;
+			packageProductDependencies = (
+			);
+			productName = HimiClipTests;
+			productReference = 8A2C37652C89BE0D0061447F /* HimiClipTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8A2C376E2C89BE0D0061447F /* HimiClipUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2C377F2C89BE0D0061447F /* Build configuration list for PBXNativeTarget "HimiClipUITests" */;
+			buildPhases = (
+				8A2C376B2C89BE0D0061447F /* Sources */,
+				8A2C376C2C89BE0D0061447F /* Frameworks */,
+				8A2C376D2C89BE0D0061447F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A2C37712C89BE0D0061447F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8A2C37722C89BE0D0061447F /* HimiClipUITests */,
+			);
+			name = HimiClipUITests;
+			packageProductDependencies = (
+			);
+			productName = HimiClipUITests;
+			productReference = 8A2C376F2C89BE0D0061447F /* HimiClipUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A2C374D2C89BE0B0061447F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					8A2C37542C89BE0B0061447F = {
+						CreatedOnToolsVersion = 16.1;
+						LastSwiftMigration = 1610;
+					};
+					8A2C37642C89BE0D0061447F = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 8A2C37542C89BE0B0061447F;
+					};
+					8A2C376E2C89BE0D0061447F = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 8A2C37542C89BE0B0061447F;
+					};
+				};
+			};
+			buildConfigurationList = 8A2C37502C89BE0B0061447F /* Build configuration list for PBXProject "HimiClip" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A2C374C2C89BE0B0061447F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8A2C37562C89BE0B0061447F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A2C37542C89BE0B0061447F /* HimiClip */,
+				8A2C37642C89BE0D0061447F /* HimiClipTests */,
+				8A2C376E2C89BE0D0061447F /* HimiClipUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A2C37532C89BE0B0061447F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ADE80AD2C8DB34A00A2CBC5 /* .gitignore in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2C37632C89BE0D0061447F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2C376D2C89BE0D0061447F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A2C37512C89BE0B0061447F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2C37612C89BE0D0061447F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8A2C376B2C89BE0D0061447F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8A2C37672C89BE0D0061447F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A2C37542C89BE0B0061447F /* HimiClip */;
+			targetProxy = 8A2C37662C89BE0D0061447F /* PBXContainerItemProxy */;
+		};
+		8A2C37712C89BE0D0061447F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8A2C37542C89BE0B0061447F /* HimiClip */;
+			targetProxy = 8A2C37702C89BE0D0061447F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8A2C37772C89BE0D0061447F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8A2C37782C89BE0D0061447F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A2C377A2C89BE0D0061447F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HimiClip/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HimiClip/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.himicos.HimiClip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8A2C377B2C89BE0D0061447F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HimiClip/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HimiClip/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.himicos.HimiClip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8A2C377D2C89BE0D0061447F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.himicos.HimiClipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HimiClip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HimiClip";
+			};
+			name = Debug;
+		};
+		8A2C377E2C89BE0D0061447F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.himicos.HimiClipTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HimiClip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HimiClip";
+			};
+			name = Release;
+		};
+		8A2C37802C89BE0D0061447F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.himicos.HimiClipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HimiClip;
+			};
+			name = Debug;
+		};
+		8A2C37812C89BE0D0061447F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.himicos.HimiClipUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HimiClip;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A2C37502C89BE0B0061447F /* Build configuration list for PBXProject "HimiClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2C37772C89BE0D0061447F /* Debug */,
+				8A2C37782C89BE0D0061447F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2C37792C89BE0D0061447F /* Build configuration list for PBXNativeTarget "HimiClip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2C377A2C89BE0D0061447F /* Debug */,
+				8A2C377B2C89BE0D0061447F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2C377C2C89BE0D0061447F /* Build configuration list for PBXNativeTarget "HimiClipTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2C377D2C89BE0D0061447F /* Debug */,
+				8A2C377E2C89BE0D0061447F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2C377F2C89BE0D0061447F /* Build configuration list for PBXNativeTarget "HimiClipUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2C37802C89BE0D0061447F /* Debug */,
+				8A2C37812C89BE0D0061447F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A2C374D2C89BE0B0061447F /* Project object */;
+}
