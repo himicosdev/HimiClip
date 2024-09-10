@@ -41,3 +41,23 @@
 "FETCHING_LATEST_CLIPBOARD_FAILED" = "Clipboard fetch error: %@";
 "DECODING_RESPONSE_FAILED" = "Response decode error";
 "LOADING_HISTORY_FAILED" = "History load error: %@";
+
+// MARK: - Authentication
+"LOGIN" = "Login";
+"REGISTER" = "Register";
+"EMAIL" = "Email";
+"USERNAME" = "Username";
+"PASSWORD" = "Password";
+"USERNAME_OR_EMAIL" = "Username or Email";
+"ALERT" = "Alert";
+"EMPTY_FIELDS" = "Please fill in all fields";
+"LOGIN_SUCCESS" = "Login successful";
+"REGISTER_SUCCESS" = "Register successful";
+"INVALID_RESPONSE" = "Invalid response";
+"VERIFICATION_CODE" = "Verification Code";
+"SEND_CODE" = "Send Code";
+"EMPTY_EMAIL" = "Please enter email";
+"VERIFICATION_CODE_SENT" = "Verification code sent";
+"VERIFICATION_CODE_EXPIRED" = "Verification code expired";
+"VERIFICATION_CODE_INCORRECT" = "Verification code incorrect";
+"VERIFICATION_CODE_REQUIRED" = "Please enter verification code";

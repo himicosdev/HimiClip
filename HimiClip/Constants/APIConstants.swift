@@ -9,6 +9,11 @@ enum APIConstants {
         static func clip(_ id: Int) -> String {
             return "\(clips)/\(id)"
         }
+
+        static let register = "/api/register"
+        static let login = "/api/login"
+        static let sendVerificationCode = "/api/sendCode"
+        static let verifyCode = "/api/verifyCode"
     }
     
     enum HTTPMethod: String {

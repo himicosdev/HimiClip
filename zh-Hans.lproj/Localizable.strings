@@ -41,3 +41,23 @@
 "FETCHING_LATEST_CLIPBOARD_FAILED" = "剪贴板获取错误: %@";
 "DECODING_RESPONSE_FAILED" = "响应解码错误";
 "LOADING_HISTORY_FAILED" = "历史记录加载错误: %@";
+
+// MARK: - 认证相关
+"LOGIN" = "登录";
+"REGISTER" = "注册";
+"EMAIL" = "邮箱";
+"USERNAME" = "用户名";
+"PASSWORD" = "密码";
+"USERNAME_OR_EMAIL" = "用户名或邮箱";
+"ALERT" = "提示";
+"EMPTY_FIELDS" = "请填写所有字段";
+"LOGIN_SUCCESS" = "登录成功";
+"REGISTER_SUCCESS" = "注册成功";
+"INVALID_RESPONSE" = "无效的响应";
+"VERIFICATION_CODE" = "验证码";
+"SEND_CODE" = "发送验证码";
+"EMPTY_EMAIL" = "请输入邮箱";
+"VERIFICATION_CODE_SENT" = "验证码已发送";
+"VERIFICATION_CODE_EXPIRED" = "验证码已过期";
+"VERIFICATION_CODE_INCORRECT" = "验证码不正确";
+"VERIFICATION_CODE_REQUIRED" = "请输入验证码";

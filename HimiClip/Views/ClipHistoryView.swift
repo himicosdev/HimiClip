@@ -71,20 +71,18 @@ struct ClipHistoryView: View {
                         refreshData()  // 下拉刷新时调用
                     }
                 }
-                // Toast View - 始终显示在屏幕底部
-                VStack {
-                    ToastView()
-                }
             }
             .onAppear {
                 if clipHistory.isEmpty {
                     fetchHistory(page: 1)  // 如果 clipHistory 为空，则重新获取数据
                 }
             }
-            // Toast View - 始终显示在屏幕底部
-            VStack {
+            // 将 ToastView 固定在页面底部
+            .overlay(
                 ToastView()
-            }
+                    .padding(.bottom, 50) // 调整这个值来改变位置
+                , alignment: .bottom
+            )
         }
     }
 

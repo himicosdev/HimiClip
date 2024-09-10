@@ -21,48 +21,43 @@ class RequestManager {
         endpoint: String,
         method: APIConstants.HTTPMethod = .get,
         body: [String: Any]? = nil,
-        completion: @escaping (Result<Data, NetworkError>) -> Void
+        completion: @escaping (Result<Data, Error>) -> Void
     ) {
         guard let url = URL(string: APIConstants.baseURL + endpoint) else {
-            completion(.failure(.invalidURL))
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue(APIConstants.ContentType.json.rawValue, forHTTPHeaderField: APIConstants.HTTPHeaderField.contentType.rawValue)
-
+        
+        // 添加token到请求头
+        if let token = UserDefaults.standard.string(forKey: "userToken") {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         if let body = body {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
+            } catch {
+                completion(.failure(error))
+                return
+            }
         }
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(.unknownError(error)))
+                completion(.failure(error))
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(.invalidResponse))
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
                 return
             }
             
-            switch httpResponse.statusCode {
-            case 200...299:
-                guard let data = data else {
-                    completion(.failure(.noData))
-                    return
-                }
-                completion(.success(data))
-            case 400...499:
-                completion(.failure(.clientError(statusCode: httpResponse.statusCode)))
-            case 500...599:
-                completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
-            default:
-                completion(.failure(.unknownError(NSError(domain: "", code: httpResponse.statusCode, userInfo: nil))))
-            }
-        }
-        tasks.append(task)
-        task.resume()
+            completion(.success(data))
+        }.resume()
     }
 }

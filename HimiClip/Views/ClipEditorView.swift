@@ -69,13 +69,14 @@ struct ClipEditorView: View {
             }
 
             // 将 ToastView 固定在页面底部
-            VStack {
+            .overlay(
                 ToastView()
-            }
+                    .padding(.bottom, 50) // 调整这个值来改变位置
+                , alignment: .bottom
+            )
         }
     }
     
-    // 从后端获取最后一个剪切板内容
     func fetchLatestClipFromBackend(completion: @escaping (ClipEntry?) -> Void = { _ in }) {
         let endpoint = "\(APIConstants.Endpoints.clips)?page=1&size=1"
         

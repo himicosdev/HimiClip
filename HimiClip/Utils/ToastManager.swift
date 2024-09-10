@@ -59,9 +59,7 @@ struct ToastView: View {
                     .background(backgroundColor(for: globalToastManager.type))  // 根据类型设置背景颜色
                     .foregroundColor(.white)
                     .cornerRadius(10)
-                    .frame(maxWidth: .infinity)  // 确保横向居中
                     .transition(.opacity)  // 添加淡入淡出动画
-                    .padding(.top, 500)
             }
         }
     }

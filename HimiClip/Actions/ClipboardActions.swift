@@ -18,10 +18,12 @@ struct SaveButton: View {
         Button(action: {
             let clipEntry = ClipEntry(
                 id: clipId,
+                userId: nil,  // 设置为 nil，由服务器处理
                 content: content,
                 contentType: nil,
                 createdAt: "",
-                updatedAt: ""
+                updatedAt: nil,
+                username: nil  // 设置为 nil，由服务器处理
             )
             saveContent(clipEntry: clipEntry)
         }) {
