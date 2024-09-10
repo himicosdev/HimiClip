@@ -15,13 +15,13 @@ struct ContentView: View {
             ClipEditorView(clipHistory: $clipHistory)
                 .tabItem {
                     Image(systemName: "doc.text")
-                    Text("Editor")
+                    Text(NSLocalizedString("EDITOR", comment: ""))
                 }
 
             ClipHistoryView(clipHistory: $clipHistory)
                 .tabItem {
                     Image(systemName: "clock")
-                    Text("History")
+                    Text(NSLocalizedString("HISTORY", comment: ""))
                 }
         }
     }

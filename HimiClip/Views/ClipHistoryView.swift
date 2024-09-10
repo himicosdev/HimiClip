@@ -61,12 +61,12 @@ struct ClipHistoryView: View {
 
                         if hasMoreData && isFetching {
                             HStack {
-                                ProgressView("Loading more clips...")
+                                ProgressView(NSLocalizedString("LOADING_MORE_CLIPS", comment: ""))
                             }
                         }
                     }
-                    .navigationBarTitle("History")
-                    .searchable(text: $searchText, prompt: "Search Clip")
+                    .navigationBarTitle(NSLocalizedString("HISTORY", comment: ""))
+                    .searchable(text: $searchText, prompt: NSLocalizedString("SEARCH_CLIP", comment: ""))
                     .refreshable {
                         refreshData()  // 下拉刷新时调用
                     }
@@ -102,65 +102,54 @@ struct ClipHistoryView: View {
 
     func fetchHistory(page: Int) {
         guard !isFetching else { return }
-
-        let urlString = "http://localhost:8080/api/clips?page=\(page)&size=20"
-        guard let url = URL(string: urlString) else { return }
-
         isFetching = true
 
-        // 使用封装的 RequestManager 发起请求
-        requestManager.performRequest(
-            url: url,
-            method: "GET",
-            failureMessage: "Failed to load history",
-            onSuccess: { data in  // 成功时处理返回的数据
-                defer { isFetching = false }
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601  // 配置 JSONDecoder 以解析 ISO 8601 日期格式
-                do {
-                    let newClips = try decoder.decode([ClipEntry].self, from: data)
-                    DispatchQueue.main.async {
+        let endpoint = "\(APIConstants.Endpoints.clips)?page=\(page)&size=20"
+        
+        requestManager.performRequest(endpoint: endpoint, method: .get) { result in
+            DispatchQueue.main.async {
+                self.isFetching = false
+                switch result {
+                case .success(let data):
+                    do {
+                        let newClips = try JSONDecoder().decode([ClipEntry].self, from: data)
                         if newClips.isEmpty {
                             self.hasMoreData = false
                         } else {
                             self.clipHistory.append(contentsOf: newClips)
                         }
+                    } catch {
+                        print("解码响应失败: \(error)")
+                        globalToastManager.showToast(message: NSLocalizedString("DECODING_RESPONSE_FAILED", comment: ""), type: .failure)
                     }
-                } catch {
-                    print("Failed to decode response: \(error)")
-                    DispatchQueue.main.async {
-                        globalToastManager.showToast(message: "Failed to decode response", type: .failure)
-                    }
-                }
-            },
-            onFailure: {
-                DispatchQueue.main.async {
-                    self.isFetching = false
+                case .failure(let error):
+                    print("加载历史记录失败: \(error.localizedDescription)")
+                    let errorMessage = String(format: NSLocalizedString("LOADING_HISTORY_FAILED", comment: ""), error.localizedDescription)
+                    globalToastManager.showToast(message: errorMessage, type: .failure)
                 }
             }
-        )
+        }
     }
 
     func deleteClip(at index: Int) {
         let clip = clipHistory[index]
         guard let clipId = clip.id else { return }
 
-        // 在删除成功之前，不立即从列表中删除，等请求成功后再移除
-        guard let url = URL(string: "http://localhost:8080/api/clips/\(clipId)") else { return }
+        let endpoint = APIConstants.Endpoints.clip(clipId)
 
-        // 使用封装的 RequestManager 发起请求
-        requestManager.performRequest(
-            url: url,
-            method: "DELETE",
-            successMessage: "Clip deleted successfully!",
-            failureMessage: "Failed to delete clip.",
-            onSuccess: { _ in
-                // 成功后从历史记录中删除
-                DispatchQueue.main.async {
-                    clipHistory.remove(at: index)
+        requestManager.performRequest(endpoint: endpoint, method: .delete) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    // 成功删除
+                    self.clipHistory.remove(at: index)
+                    globalToastManager.showToast(message: "剪贴板内容已成功删除！", type: .success)
+                case .failure(let error):
+                    // 删除失败
+                    globalToastManager.showToast(message: "删除剪贴板内容失败: \(error.localizedDescription)", type: .failure)
                 }
             }
-        )
+        }
     }
 }
 
@@ -171,7 +160,7 @@ struct ClipDetailView: View {
 
     var body: some View {
         ZStack {
-            // 使用类似设置应用的背景颜色
+            // 使用类似设置应���的背景颜色
             Color(UIColor.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
 
@@ -205,7 +194,7 @@ struct ClipDetailView: View {
                 Spacer()  // 将内容推到顶部，保持 ToastView 在底部
             }
             .padding()
-            .navigationTitle("Edit Clip")
+            .navigationTitle(NSLocalizedString("EDIT_CLIP", comment: ""))
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 // 在视图加载时初始化 editContent

@@ -11,6 +11,12 @@ let globalToastManager = ToastManager()
 
 @main
 struct HimiClipApp: App {
+    init() {
+        // zh-Hans
+        UserDefaults.standard.set(["zh-Hans"], forKey: "AppleLanguages")
+        UserDefaults.standard.synchronize()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

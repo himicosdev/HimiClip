@@ -1,0 +1,43 @@
+// MARK: - Main Interface Elements
+"HIMICLIP" = "HimiClip";
+"EDITOR" = "Editor";
+"HISTORY" = "History";
+
+// MARK: - Action Buttons
+"SAVE" = "Save";
+"COPY" = "Copy";
+"PASTE" = "Paste";
+
+// MARK: - Search and Loading
+"SEARCH_CLIP" = "Search Clip";
+"LOADING_MORE_CLIPS" = "Loading more clips...";
+
+// MARK: - Editing Related
+"EDIT_CLIP" = "Edit Clip";
+"NO_CONTENT_TO_SAVE" = "No content to save";
+"CONTENT_UNCHANGED" = "Content unchanged, no need to save";
+"CLIP_SAVED" = "Clip saved successfully";
+"ERROR_SAVING_CLIP" = "Error saving clip";
+
+// MARK: - Clipboard Operation Feedback
+"COPIED_TO_CLIPBOARD" = "Copied to clipboard!";
+"PASTED_FROM_CLIPBOARD" = "Pasted from clipboard!";
+
+// MARK: - Timestamps
+"CREATED_AT" = "Created At: ";
+"UPDATED_AT" = "Updated At: ";
+
+// MARK: - Network Error Related
+"INVALID_URL" = "Invalid URL";
+"INVALID_RESPONSE" = "Invalid response";
+"NO_DATA" = "No data returned";
+"DECODING_ERROR" = "Data decoding error";
+"CLIENT_ERROR" = "Client error: %d";  // %d will be replaced with the specific error code
+"SERVER_ERROR" = "Server error: %d";  // %d will be replaced with the specific error code
+"UNKNOWN_ERROR" = "Unknown error: %@";  // %@ will be replaced with the specific error description
+
+// MARK: - Error Messages
+"DECODING_CLIPBOARD_DATA_FAILED" = "Clipboard data decode error";
+"FETCHING_LATEST_CLIPBOARD_FAILED" = "Clipboard fetch error: %@";
+"DECODING_RESPONSE_FAILED" = "Response decode error";
+"LOADING_HISTORY_FAILED" = "History load error: %@";

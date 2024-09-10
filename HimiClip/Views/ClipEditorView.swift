@@ -20,7 +20,7 @@ struct ClipEditorView: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-                Text("HimiClip")
+                Text(NSLocalizedString("HIMICLIP", comment: ""))
                     .font(.title)
                     .padding(.bottom, 20)
 
@@ -77,25 +77,30 @@ struct ClipEditorView: View {
     
     // 从后端获取最后一个剪切板内容
     func fetchLatestClipFromBackend(completion: @escaping (ClipEntry?) -> Void = { _ in }) {
-        let url = URL(string: "http://localhost:8080/api/clips?page=1&size=1")!
+        let endpoint = "\(APIConstants.Endpoints.clips)?page=1&size=1"
         
-        requestManager.performRequest(
-            url: url,
-            method: "GET",
-            failureMessage: "Failed to fetch latest clip."
-        )
-        { data in
-            // 尝试解码 data 为 [ClipEntry] 数组对象
-            if let decodedClips = try? JSONDecoder().decode([ClipEntry].self, from: data),
-                let latestClip = decodedClips.first {
-                // 保存解码后的数据
-                self.lastClip = [latestClip]
-                self.originalContent = latestClip.content  // 初始化 originalContent
-                completion(latestClip)  // 调用回调，将最新的剪切板数据传回
-            } else {
-                // 当解码失败时，显示 toast 提示解码错误
-                globalToastManager.showToast(message: "Failed to decode clip data", type: .failure)
-                completion(nil)  // 调用回调，表示获取失败
+        requestManager.performRequest(endpoint: endpoint, method: .get) { result in
+            switch result {
+            case .success(let data):
+                if let decodedClips = try? JSONDecoder().decode([ClipEntry].self, from: data),
+                    let latestClip = decodedClips.first {
+                    DispatchQueue.main.async {
+                        self.lastClip = [latestClip]
+                        self.originalContent = latestClip.content
+                        completion(latestClip)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        globalToastManager.showToast(message: NSLocalizedString("DECODING_CLIPBOARD_DATA_FAILED", comment: ""), type: .failure)
+                        completion(nil)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    let errorMessage = String(format: NSLocalizedString("FETCHING_LATEST_CLIPBOARD_FAILED", comment: ""), error.localizedDescription)
+                    globalToastManager.showToast(message: errorMessage, type: .failure)
+                    completion(nil)
+                }
             }
         }
     }

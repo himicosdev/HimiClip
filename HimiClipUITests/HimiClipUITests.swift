@@ -40,4 +40,35 @@ final class HimiClipUITests: XCTestCase {
             }
         }
     }
+
+    @MainActor
+    func testClipEditorView() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // 测试编辑器视图是否存在
+        XCTAssertTrue(app.textViews["clipEditorTextView"].exists)
+        
+        // 测试保存按钮是否存在
+        XCTAssertTrue(app.buttons["saveButton"].exists)
+        
+        // 测试复制和粘贴按钮是否存在
+        XCTAssertTrue(app.buttons["copyButton"].exists)
+        XCTAssertTrue(app.buttons["pasteButton"].exists)
+    }
+
+    @MainActor
+    func testClipHistoryView() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        // 切换到历史记录视图
+        app.tabBars.buttons["History"].tap()
+        
+        // 测试历史记录列表是否存在
+        XCTAssertTrue(app.tables["clipHistoryTable"].exists)
+        
+        // 测试搜索栏是否存在
+        XCTAssertTrue(app.searchFields["Search Clip"].exists)
+    }
 }

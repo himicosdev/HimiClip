@@ -29,9 +29,9 @@ struct DateUtility {
     static func getDisplayDateLabel(createdAt: String?, updatedAt: String?) -> String? {
         // 只有在 updatedAt 或 createdAt 存在时，才返回格式化的日期标签
         if let updatedAt = updatedAt, !updatedAt.isEmpty {
-            return "Updated At: \(formattedDate(updatedAt))"
+            return "\(NSLocalizedString("UPDATED_AT", comment: "")) \(formattedDate(updatedAt))"
         } else if let createdAt = createdAt, !createdAt.isEmpty {
-            return "Created At: \(formattedDate(createdAt))"
+            return "\(NSLocalizedString("CREATED_AT", comment: "")) \(formattedDate(createdAt))"
         } else {
             return nil  // 如果没有有效日期，则返回 nil
         }

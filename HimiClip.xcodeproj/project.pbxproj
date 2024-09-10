@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8ADE80AD2C8DB34A00A2CBC5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8ADE80AC2C8DB34500A2CBC5 /* .gitignore */; };
+		8AF82E5F2C8FFEE9006800A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AF82E5D2C8FFEE9006800A6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,8 @@
 		8A2C37652C89BE0D0061447F /* HimiClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HimiClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2C376F2C89BE0D0061447F /* HimiClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HimiClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ADE80AC2C8DB34500A2CBC5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8AF82E5E2C8FFEE9006800A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8AF82E602C8FFFDA006800A6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,6 +96,7 @@
 		8A2C374C2C89BE0B0061447F = {
 			isa = PBXGroup;
 			children = (
+				8AF82E5D2C8FFEE9006800A6 /* Localizable.strings */,
 				8AB7CAAE2C8C4EE1005B3FE0 /* HimiClip */,
 				8A2C37682C89BE0D0061447F /* HimiClipTests */,
 				8A2C37722C89BE0D0061447F /* HimiClipUITests */,
@@ -207,11 +211,12 @@
 				};
 			};
 			buildConfigurationList = 8A2C37502C89BE0B0061447F /* Build configuration list for PBXProject "HimiClip" */;
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 8A2C374C2C89BE0B0061447F;
 			minimizedProjectReferenceProxies = 1;
@@ -232,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF82E5F2C8FFEE9006800A6 /* Localizable.strings in Resources */,
 				8ADE80AD2C8DB34A00A2CBC5 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +294,18 @@
 			targetProxy = 8A2C37702C89BE0D0061447F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8AF82E5D2C8FFEE9006800A6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AF82E5E2C8FFEE9006800A6 /* en */,
+				8AF82E602C8FFFDA006800A6 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8A2C37772C89BE0D0061447F /* Debug */ = {
@@ -421,6 +439,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HimiClip/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = CFBundleDevelopmentRegion;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -453,6 +472,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HimiClip/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = CFBundleDevelopmentRegion;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

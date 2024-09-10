@@ -1,0 +1,43 @@
+// MARK: - 主要界面元素
+"HIMICLIP" = "HimiClip";
+"EDITOR" = "编辑";
+"HISTORY" = "历史";
+
+// MARK: - 操作按钮
+"SAVE" = "保存";
+"COPY" = "复制";
+"PASTE" = "粘贴";
+
+// MARK: - 搜索和加载
+"SEARCH_CLIP" = "搜索剪贴板";
+"LOADING_MORE_CLIPS" = "加载更多剪贴板...";
+
+// MARK: - 编辑相关
+"EDIT_CLIP" = "编辑剪贴板";
+"NO_CONTENT_TO_SAVE" = "没有内容可保存";
+"CONTENT_UNCHANGED" = "内容未发生变化，无需保存";
+"CLIP_SAVED" = "剪贴板保存成功";
+"ERROR_SAVING_CLIP" = "保存剪贴板时出错";
+
+// MARK: - 剪贴板操作反馈
+"COPIED_TO_CLIPBOARD" = "已复制到剪贴板！";
+"PASTED_FROM_CLIPBOARD" = "已从剪贴板粘贴！";
+
+// MARK: - 时间标记
+"CREATED_AT" = "创建于";
+"UPDATED_AT" = "更新于";
+
+// MARK: - 网络错误相关
+"INVALID_URL" = "无效的 URL";
+"INVALID_RESPONSE" = "无效的响应";
+"NO_DATA" = "没有返回数据";
+"DECODING_ERROR" = "数据解码错误";
+"CLIENT_ERROR" = "客户端错误: %d";  // %d 将被替换为具体的错误代码
+"SERVER_ERROR" = "服务器错误: %d";  // %d 将被替换为具体的错误代码
+"UNKNOWN_ERROR" = "未知错误: %@";   // %@ 将被替换为具体的错误描述
+
+// MARK: - 错误消息
+"DECODING_CLIPBOARD_DATA_FAILED" = "剪贴板数据解码错误";
+"FETCHING_LATEST_CLIPBOARD_FAILED" = "剪贴板获取错误: %@";
+"DECODING_RESPONSE_FAILED" = "响应解码错误";
+"LOADING_HISTORY_FAILED" = "历史记录加载错误: %@";
