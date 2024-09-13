@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var clipHistory: [ClipEntry] = []
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         TabView {
-            ClipEditorView(clipHistory: $clipHistory)
+            ClipEditorView()
                 .tabItem {
                     Image(systemName: "doc.text")
                     Text(NSLocalizedString("EDITOR", comment: ""))
                 }
 
-            ClipHistoryView(clipHistory: $clipHistory)
+            ClipHistoryView()
                 .tabItem {
                     Image(systemName: "clock")
                     Text(NSLocalizedString("HISTORY", comment: ""))
@@ -26,10 +26,3 @@ struct ContentView: View {
         }
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-

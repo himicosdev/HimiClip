@@ -2,6 +2,6 @@ import Foundation
 
 struct LoginResponse: Codable {
     let message: String
-    let userId: Int
+    let user: User
     let token: String
 }

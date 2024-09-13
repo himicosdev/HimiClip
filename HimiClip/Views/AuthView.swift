@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct AuthView: View {
+    @EnvironmentObject var authManager: AuthenticationManager
     @State private var isLogin = true
     @State private var usernameOrEmail = ""
     @State private var username = ""
@@ -100,16 +101,17 @@ struct AuthView: View {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-                    if let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
-                        UserDefaults.standard.set(loginResponse.token, forKey: "userToken")
-                        UserDefaults.standard.set(loginResponse.userId, forKey: "userId")
-                        NotificationCenter.default.post(name: .userDidAuthenticate, object: nil)
+                    do {
+                        let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                        self.authManager.login(with: loginResponse)
                         globalToastManager.showToast(message: NSLocalizedString("LOGIN_SUCCESS", comment: ""), type: .success)
-                    } else {
+                    } catch {
+                        print("解码登录响应失败: \(error)")
                         globalToastManager.showToast(message: NSLocalizedString("INVALID_RESPONSE", comment: ""), type: .failure)
                     }
                 case .failure(let error):
-                    globalToastManager.showToast(message: error.localizedDescription, type: .failure)
+                    let errorMessage = NSLocalizedString("LOGIN_FAILED", comment: "") + ": " + error.localizedDescription
+                    globalToastManager.showToast(message: errorMessage, type: .failure)
                 }
             }
         }
@@ -182,12 +184,5 @@ struct AuthView: View {
                 }
             }
         }
-    }
-}
-
-// MARK: - Previews
-struct AuthView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthView()
     }
 }

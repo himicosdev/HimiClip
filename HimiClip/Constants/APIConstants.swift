@@ -1,7 +1,7 @@
 import Foundation
 
 enum APIConstants {
-    static let baseURL = "http://localhost:8080"
+    static let baseURL = ConfigurationManager.shared.baseURL
     
     enum Endpoints {
         static let clips = "/api/clips"

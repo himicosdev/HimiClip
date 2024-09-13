@@ -26,6 +26,12 @@
 // MARK: - Timestamps
 "CREATED_AT" = "Created At: ";
 "UPDATED_AT" = "Updated At: ";
+"UNKNOWN_TIME" = "Unknown Time";
+"DAYS_AGO" = "Days Ago";
+"HOURS_AGO" = "Hours Ago";
+"MINUTES_AGO" = "Minutes Ago";
+"SECONDS_AGO" = "Seconds Ago";
+"JUST_NOW" = "Just Now";
 
 // MARK: - Network Error Related
 "INVALID_URL" = "Invalid URL";

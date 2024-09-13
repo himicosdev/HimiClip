@@ -26,6 +26,12 @@
 // MARK: - 时间标记
 "CREATED_AT" = "创建于";
 "UPDATED_AT" = "更新于";
+"UNKNOWN_TIME" = "未知时间";
+"DAYS_AGO" = "天前";
+"HOURS_AGO" = "小时前";
+"MINUTES_AGO" = "分钟前";
+"SECONDS_AGO" = "秒前";
+"JUST_NOW" = "刚刚";
 
 // MARK: - 网络错误相关
 "INVALID_URL" = "无效的 URL";

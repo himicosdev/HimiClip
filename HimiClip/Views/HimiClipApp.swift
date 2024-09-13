@@ -8,36 +8,28 @@
 import SwiftUI
 
 let globalToastManager = ToastManager()
+let authManager = AuthenticationManager()
 
 @main
 struct HimiClipApp: App {
-    @State private var isAuthenticated = false
+    @StateObject private var authManager = AuthenticationManager()
+    @StateObject private var appState = AppState()
 
     init() {
         // zh-Hans
         UserDefaults.standard.set(["zh-Hans"], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
-        
-        // 检查是否有存储的token
-        if UserDefaults.standard.string(forKey: "userToken") != nil {
-            isAuthenticated = true
-        }
     }
 
     var body: some Scene {
         WindowGroup {
-            if isAuthenticated {
+            if authManager.isAuthenticated {
                 ContentView()
+                    .environmentObject(appState)
             } else {
                 AuthView()
-                    .onReceive(NotificationCenter.default.publisher(for: .userDidAuthenticate)) { _ in
-                        isAuthenticated = true
-                    }
             }
         }
+        .environmentObject(authManager)
     }
-}
-
-extension Notification.Name {
-    static let userDidAuthenticate = Notification.Name("userDidAuthenticate")
 }

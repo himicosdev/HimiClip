@@ -28,7 +28,7 @@ class RequestManager {
             return
         }
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, timeoutInterval: ConfigurationManager.shared.apiTimeout)
         request.httpMethod = method.rawValue
         request.setValue(APIConstants.ContentType.json.rawValue, forHTTPHeaderField: APIConstants.HTTPHeaderField.contentType.rawValue)
         

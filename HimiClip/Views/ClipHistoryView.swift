@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct ClipHistoryView: View {
-    @Binding var clipHistory: [ClipEntry]
+    @EnvironmentObject var appState: AppState
     @State private var page = 1
-    @State private var hasMoreData = true
-    @State private var isFetching = false
-    @State private var searchText: String = ""  // 添加搜索文本
-    private let requestManager = RequestManager()  // 使用封装的 RequestManager
+    @State private var searchText: String = ""
+    private let requestManager = RequestManager()
 
     var filteredClipHistory: [ClipEntry] {
         if searchText.isEmpty {
-            return clipHistory
+            return appState.clipHistory
         } else {
-            return clipHistory.filter { $0.content.lowercased().contains(searchText.lowercased()) }
+            return appState.clipHistory.filter { $0.content.lowercased().contains(searchText.lowercased()) }
         }
     }
 
@@ -34,18 +32,18 @@ struct ClipHistoryView: View {
                     // 列表视图层
                     List {
                         ForEach(filteredClipHistory.indices, id: \.self) { index in
-                            NavigationLink(destination: ClipDetailView(clip: $clipHistory[index])) {  // 绑定到 clipHistory[index]
+                            NavigationLink(destination: ClipDetailView(clip: $appState.clipHistory[index])) {  // 绑定到 appState.clipHistory[index]
                                 Text(filteredClipHistory[index].content)
                                     .lineLimit(1)
                                     .onAppear {
-                                        if index == filteredClipHistory.count - 1 && hasMoreData && !isFetching {
+                                        if index == filteredClipHistory.count - 1 && appState.hasMoreData && !appState.isFetching {
                                             loadMore()
                                         }
                                     }
                             }
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
-                                    deleteClip(at: index)
+                                    appState.deleteClip(at: index)
                                 } label: {
                                     Label("Delete", systemImage: "trash")
                                 }
@@ -59,7 +57,7 @@ struct ClipHistoryView: View {
                             }
                         }
 
-                        if hasMoreData && isFetching {
+                        if appState.hasMoreData && appState.isFetching {
                             HStack {
                                 ProgressView(NSLocalizedString("LOADING_MORE_CLIPS", comment: ""))
                             }
@@ -73,8 +71,8 @@ struct ClipHistoryView: View {
                 }
             }
             .onAppear {
-                if clipHistory.isEmpty {
-                    fetchHistory(page: 1)  // 如果 clipHistory 为空，则重新获取数据
+                if appState.clipHistory.isEmpty {
+                    appState.fetchHistory(page: 1)
                 }
             }
             // 将 ToastView 固定在页面底部
@@ -88,83 +86,31 @@ struct ClipHistoryView: View {
 
     func loadMore() {
         page += 1
-        fetchHistory(page: page)
+        appState.fetchHistory(page: page)
     }
 
     func refreshData() {
         page = 1
-        hasMoreData = true
-        clipHistory.removeAll()  // 清空现有数据
-        fetchHistory(page: 1)    // 重新加载第一页数据
-    }
-
-    func fetchHistory(page: Int) {
-        guard !isFetching else { return }
-        isFetching = true
-
-        let endpoint = "\(APIConstants.Endpoints.clips)?page=\(page)&size=20"
-        
-        requestManager.performRequest(endpoint: endpoint, method: .get) { result in
-            DispatchQueue.main.async {
-                self.isFetching = false
-                switch result {
-                case .success(let data):
-                    do {
-                        let newClips = try JSONDecoder().decode([ClipEntry].self, from: data)
-                        if newClips.isEmpty {
-                            self.hasMoreData = false
-                        } else {
-                            self.clipHistory.append(contentsOf: newClips)
-                        }
-                    } catch {
-                        print("解码响应失败: \(error)")
-                        globalToastManager.showToast(message: NSLocalizedString("DECODING_RESPONSE_FAILED", comment: ""), type: .failure)
-                    }
-                case .failure(let error):
-                    print("加载历史记录失败: \(error.localizedDescription)")
-                    let errorMessage = String(format: NSLocalizedString("LOADING_HISTORY_FAILED", comment: ""), error.localizedDescription)
-                    globalToastManager.showToast(message: errorMessage, type: .failure)
-                }
-            }
-        }
-    }
-
-    func deleteClip(at index: Int) {
-        let clip = clipHistory[index]
-        guard let clipId = clip.id else { return }
-
-        let endpoint = APIConstants.Endpoints.clip(clipId)
-
-        requestManager.performRequest(endpoint: endpoint, method: .delete) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(_):
-                    // 成功删除
-                    self.clipHistory.remove(at: index)
-                    globalToastManager.showToast(message: "剪贴板内容已成功删除！", type: .success)
-                case .failure(let error):
-                    // 删除失败
-                    globalToastManager.showToast(message: "删除剪贴板内容失败: \(error.localizedDescription)", type: .failure)
-                }
-            }
-        }
+        appState.hasMoreData = true
+        appState.clipHistory.removeAll()  // 清空现有数据
+        appState.fetchHistory(page: 1)    // 重新加载第一页数据
     }
 }
 
 struct ClipDetailView: View {
-    @Binding var clip: ClipEntry  // 直接绑定到 ClipEntry
-    @State var editContent: String = ""  // 复制一份在ClipDetailView视图中编辑
+    @EnvironmentObject var appState: AppState
+    @Binding var clip: ClipEntry
+    @State private var editContent: String = ""
+    @State private var timeDescription: String = ""
     @StateObject private var toastManager = ToastManager()
 
     var body: some View {
         ZStack {
-            // 使用类似设置应���的背景颜色
             Color(UIColor.systemGroupedBackground)
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-
-                // 文本输入区域
+                // 文本编辑器
                 TextEditor(text: $editContent)
                     .font(.body.weight(.black))
                     .foregroundColor(.white)
@@ -175,40 +121,48 @@ struct ClipDetailView: View {
                     .cornerRadius(12)
                     .padding()
 
-                if let dateLabel = DateUtility.getDisplayDateLabel(createdAt: clip.createdAt, updatedAt: clip.updatedAt) {
-                    Text(dateLabel)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                }
+                // 时间描述
+                Text(timeDescription)
+                    .font(.footnote)
+                    .foregroundColor(.gray)
 
-                // 保存、复制和粘贴按钮
+                // 保存和复制粘贴按钮
                 HStack {
-                    SaveButton(clipId: clip.id, content: $editContent,originalContent: clip.content){
+                    SaveButton(clipId: clip.id, content: $editContent, originalContent: clip.content) {
                         clip.content = editContent
+                        let updatedAt = DateUtility.currentDateInUTC8String()
+                        clip = ClipEntry(id: clip.id, 
+                                        userId: clip.userId, 
+                                        content: editContent, 
+                                        contentType: clip.contentType, 
+                                        createdAt: clip.createdAt, 
+                                        updatedAt: updatedAt, 
+                                        username: clip.username)
+                        updateTimeDescription()
+                        appState.updateClipEntry(clip)
                     }
                     
                     CopyPasteButtons(content: $clip.content)
                 }
-                Spacer()  // 将内容推到顶部，保持 ToastView 在底部
+                .padding(.top)
+
+                Spacer()
             }
             .padding()
-            .navigationTitle(NSLocalizedString("EDIT_CLIP", comment: ""))
-            .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                // 在视图加载时初始化 editContent
-                self.editContent = clip.content
-            }
-
-            // 将 ToastView 固定在页面底部
-            VStack {
-                ToastView()
-            }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            self.editContent = clip.content
+            updateTimeDescription()
+        }
+        .overlay(
+            ToastView()
+                .padding(.bottom, 50)
+            , alignment: .bottom
+        )
     }
-}
-
-struct ClipHistory_Previews: PreviewProvider {
-    static var previews: some View {
-        ClipHistoryView(clipHistory: .constant([ClipEntry.defaultClip()]))
+    
+    private func updateTimeDescription() {
+        timeDescription = DateUtility.getRelativeTimeDescription(createdAt: clip.createdAt, updatedAt: clip.updatedAt)
     }
 }
